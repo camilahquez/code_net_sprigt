@@ -14,16 +14,13 @@ import java.util.Date;
 @Document(collection = "likes")
 public class LikesEntity {
     @Id
-    @NotNull
-    @Min(value= 1, message = "El ID debe de ser un valor posittivo")
     private int id;
     @NotNull
     @Min(value= 1, message = "El ID debe de ser un valor posittivo")
-    private int idUser;
+    private int idPublicacion;
     @NotNull
     @Min(value= 1, message = "El ID debe de ser un valor posittivo")
-    private int idPublication ;
-    @NotNull
-    private Date dateLike;
+    private int idUsuario;
+
 
 }

@@ -13,13 +13,8 @@ import java.util.Date;
 @Setter
 @Document(collection = "data_user")
 public class DataUserEntity {
-    @Id
     @NotNull
-    @Min(value= 1, message = "El ID debe de ser un valor posittivo")
-    private int id;
-    @NotNull
-    @Min(value= 1, message = "El ID debe de ser un valor posittivo")
-    private int idUser ;
+    private String email ;
     @NotNull
     private String nickname;
     @NotNull

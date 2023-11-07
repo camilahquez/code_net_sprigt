@@ -5,12 +5,15 @@ import com.example.code_net_mongodb.Entity.UserEntity;
 import com.example.code_net_mongodb.Service.PublicationService;
 import com.example.code_net_mongodb.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
+@RestController
 public class PublicationController {
     private final PublicationService service;
 
@@ -25,7 +28,7 @@ public class PublicationController {
         List<PublicationEntity> publicationList = this.service.consultarPublication();
         return  ResponseEntity.ok(publicationList);
     }
-    @PutMapping
+    @PostMapping
     @RequestMapping(value = "createPublication", method = RequestMethod.POST)
     public ResponseEntity<?> createPublication(@RequestBody  PublicationEntity publication){
         PublicationEntity publicationCreado= this.service.createPublication(publication);
@@ -39,15 +42,21 @@ public class PublicationController {
     }
 
     @GetMapping
-    @RequestMapping(value = "BuscarPublication/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> BuscarPublication(@PathVariable int id){
-        PublicationEntity publicationbuscada= this.service.BuscarPublication(id);
+    @RequestMapping(value = "BuscarPublication/{idPublicacion}", method = RequestMethod.GET)
+    public ResponseEntity<?> BuscarPublication(@PathVariable int idPublicacion){
+        PublicationEntity publicationbuscada= this.service.BuscarPublication(idPublicacion);
         return  ResponseEntity.ok(publicationbuscada);
     }
     @DeleteMapping
-    @RequestMapping(value = "EliminarPublication/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> EliminarPublication(@PathVariable int id){
-        this.service.EliminarPublication(id);
+    @RequestMapping(value = "EliminarPublication/{idPubliacacion}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> EliminarPublication(@PathVariable int idPublicacion){
+        this.service.EliminarPublication(idPublicacion);
         return  ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/Publication")
+    @RequestMapping(value = "publicationByIdUser/{idUsuario}/{page}/{size}", method = RequestMethod.GET)
+    public Page<PublicationEntity> publicationByIdUsuario(@PathVariable int idUsuario, @PathVariable int page, @PathVariable int size) {
+        return service.publicationByIdUser(idUsuario, page, size);
     }
 }

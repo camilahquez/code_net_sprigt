@@ -6,28 +6,25 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 @Getter
 @Setter
 @Document(collection = "publication")
 public class PublicationEntity {
     @Id
-    @NotNull
-    @Min(value= 1, message = "El ID debe de ser un valor posittivo")
     private int id;
     @NotNull
     @Min(value= 1, message = "El ID debe de ser un valor posittivo")
-    private int id_user;
+    private int idUsuario;
     @NotNull
-    private ArrayList<String> link_publication;
+    private ArrayList<String> linkPublication;
     @NotNull
-    private String type_publication;
-    @NotNull
-    private Date date_publication;
-    @NotNull
+    private String typePublication;
+    private LocalDateTime datePublication;
     private String message;
-
 }

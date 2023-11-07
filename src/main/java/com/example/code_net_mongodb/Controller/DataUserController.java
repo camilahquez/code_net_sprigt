@@ -26,7 +26,7 @@ public class DataUserController {
         List<DataUserEntity> dataUserList = this.service.consultarDataUser();
         return  ResponseEntity.ok(dataUserList);
     }
-    @PutMapping
+    @PostMapping
     @RequestMapping(value = "createDataUser", method = RequestMethod.POST)
     public ResponseEntity<?> createDataUser(@RequestBody DataUserEntity data){
         DataUserEntity dataModificada = this.service.createDataUser(data);
@@ -39,15 +39,15 @@ public class DataUserController {
         return  ResponseEntity.status(HttpStatus.CREATED).body(datosModificados);
     }
     @GetMapping
-    @RequestMapping(value = "BuscarDataUser/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> BuscarDataUser(@PathVariable int id){
-        DataUserEntity databuscar= this.service.BuscarDataUser(id);
+    @RequestMapping(value = "BuscarDataUser/{email}", method = RequestMethod.GET)
+    public ResponseEntity<?> BuscarDataUser(@PathVariable String email){
+        DataUserEntity databuscar= this.service.BuscarDataUser(email);
         return  ResponseEntity.ok(databuscar);
     }
     @DeleteMapping
-    @RequestMapping(value = "EliminarDataUser/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> EliminarDataUser(@PathVariable int id){
-        this.service.EliminarDataUser(id);
+    @RequestMapping(value = "EliminarDataUser/{email}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> EliminarDataUser(@PathVariable String email){
+        this.service.EliminarDataUser(email);
         return  ResponseEntity.ok().build();
     }
 }

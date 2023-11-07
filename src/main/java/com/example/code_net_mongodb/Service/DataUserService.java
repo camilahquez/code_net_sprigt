@@ -28,12 +28,12 @@ public class DataUserService {
 
         return this.Repository.save(data);
     }
-    public DataUserEntity BuscarDataUser(int id) {
+    public DataUserEntity BuscarDataUser(String email) {
 
-        return this.Repository.findById(id).get();
+        return this.Repository.findByEmail(email).get();
     }
-    public void EliminarDataUser(int id) {
-        this.Repository.deleteById(id);
+    public void EliminarDataUser(String email) {
+        this.Repository.deleteByEmail(email);
     }
 
 }

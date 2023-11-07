@@ -24,29 +24,33 @@ public class UserController {
         List<UserEntity> userList = this.service.consultarUser();
         return  ResponseEntity.ok(userList);
     }
-    @PutMapping
-    @RequestMapping(value = "createUser", method = RequestMethod.POST)
+    @PostMapping
+    @RequestMapping(value = "createUsuario", method = RequestMethod.POST)
     public ResponseEntity<?> createUser(@RequestBody  UserEntity user){
         UserEntity userCreado= this.service.createUser(user);
+        if (userCreado == null) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("User already exists");
+        }
+
         return  ResponseEntity.status(HttpStatus.CREATED).body(userCreado);
     }
     @PutMapping
-    @RequestMapping(value = "ModificarUser", method = RequestMethod.PUT)
+    @RequestMapping(value = "ModificarUsuario", method = RequestMethod.PUT)
     public ResponseEntity<?> ModificarUser(@RequestBody  UserEntity user){
         UserEntity userModificado = this.service.ModificarUser(user);
         return  ResponseEntity.status(HttpStatus.CREATED).body(userModificado);
     }
 
     @GetMapping
-    @RequestMapping(value = "BuscarUser/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> BuscarUser(@PathVariable int id){
-        UserEntity userbuscado= this.service.BuscarUser(id);
+    @RequestMapping(value = "BuscarUsuario/{idUsuario}", method = RequestMethod.GET)
+    public ResponseEntity<?> BuscarUser(@PathVariable int idUsuario){
+        UserEntity userbuscado= this.service.BuscarUserById(idUsuario);
         return  ResponseEntity.ok(userbuscado);
     }
     @DeleteMapping
-    @RequestMapping(value = "EliminarUser/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> EliminarUser(@PathVariable int id){
-        this.service.EliminarUser(id);
+    @RequestMapping(value = "EliminarUsuario/{idUsuario}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> EliminarUser(@PathVariable int idUsuario){
+        this.service.EliminarUser(idUsuario);
         return  ResponseEntity.ok().build();
     }
 }
