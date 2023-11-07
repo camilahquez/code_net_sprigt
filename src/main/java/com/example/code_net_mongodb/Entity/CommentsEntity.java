@@ -22,7 +22,9 @@ public class CommentsEntity {
     @NotNull
     @Min(value= 1, message = "El ID debe de ser un valor posittivo")
     private int idPublicacion;
+    //no se ingresa
     private LocalDateTime dateCommets;
+    @NotNull
     private String message;
 
 }

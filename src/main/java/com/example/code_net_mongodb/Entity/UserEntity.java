@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @Document(collection = "user")
 public class UserEntity {
+    //no se ingresa
     @Id
     private int id;
     @NotNull
@@ -21,5 +22,6 @@ public class UserEntity {
     private String email;
     @NotNull
     private String password;
+    //no se ingresa
     private LocalDateTime fechaCreate;
 }

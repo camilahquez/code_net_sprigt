@@ -25,6 +25,8 @@ public class PublicationEntity {
     private ArrayList<String> linkPublication;
     @NotNull
     private String typePublication;
+    //no se ingresa
     private LocalDateTime datePublication;
+
     private String message;
 }

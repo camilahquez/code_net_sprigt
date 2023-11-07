@@ -24,7 +24,6 @@ public class DataUserEntity {
     @NotNull
     private String profilePicture;
     private String address;
-    @NotNull
     private String phoneNumber;
     @NotNull
     private Date dateBirth;

@@ -18,6 +18,7 @@ public class UserController {
         this.service = service;
     }
 
+    //consultar todos los usuarios
     @GetMapping
     @RequestMapping(value = "consultarUser", method = RequestMethod.GET)
     public ResponseEntity<?> consultarUser(){
@@ -41,6 +42,7 @@ public class UserController {
         return  ResponseEntity.status(HttpStatus.CREATED).body(userModificado);
     }
 
+    //buscar un usuario especifico por el id
     @GetMapping
     @RequestMapping(value = "BuscarUsuario/{idUsuario}", method = RequestMethod.GET)
     public ResponseEntity<?> BuscarUser(@PathVariable int idUsuario){

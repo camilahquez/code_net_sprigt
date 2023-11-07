@@ -20,12 +20,14 @@ public class DataUserController {
         this.service = service;
     }
 
+    //consultar todos los usuarios
     @GetMapping
     @RequestMapping(value = "consultarDataUser", method = RequestMethod.GET)
     public ResponseEntity<?> consultarDataUser(){
         List<DataUserEntity> dataUserList = this.service.consultarDataUser();
         return  ResponseEntity.ok(dataUserList);
     }
+    //se crean al mismo tiempo que el usuario
     @PostMapping
     @RequestMapping(value = "createDataUser", method = RequestMethod.POST)
     public ResponseEntity<?> createDataUser(@RequestBody DataUserEntity data){
