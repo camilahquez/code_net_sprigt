@@ -35,7 +35,6 @@ public class UserService {
     }
 
     public UserEntity ModificarUser(UserEntity user) {
-
         return this.Repository.save(user);
     }
 

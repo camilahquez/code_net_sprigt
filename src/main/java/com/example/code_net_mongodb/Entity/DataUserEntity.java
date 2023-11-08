@@ -1,6 +1,5 @@
 package com.example.code_net_mongodb.Entity;
 
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,8 +13,9 @@ import java.util.Date;
 @Setter
 @Document(collection = "data_user")
 public class DataUserEntity {
+    @Id
     @NotNull
-    private String email ;
+    private String email;
     @NotNull
     private String nickname;
     @NotNull
