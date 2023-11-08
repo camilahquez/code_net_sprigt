@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -46,8 +47,14 @@ public class UserController {
     @GetMapping
     @RequestMapping(value = "BuscarUsuario/{idUsuario}", method = RequestMethod.GET)
     public ResponseEntity<?> BuscarUser(@PathVariable int idUsuario){
-        UserEntity userbuscado= this.service.BuscarUserById(idUsuario);
-        return  ResponseEntity.ok(userbuscado);
+        UserEntity userBuscado= this.service.BuscarUserById(idUsuario);
+        return  ResponseEntity.ok(userBuscado);
+    }
+    @GetMapping
+    @RequestMapping(value = "BuscarUsuarioByEmail/{email}", method = RequestMethod.GET)
+    public ResponseEntity<?> BuscarUsuarioByEmail(@PathVariable String email) {
+        Optional<UserEntity> userBuscadoByEmail = this.service.BuscarUserByEmail(email);
+        return  ResponseEntity.ok(userBuscadoByEmail);
     }
     @DeleteMapping
     @RequestMapping(value = "EliminarUsuario/{idUsuario}", method = RequestMethod.DELETE)
@@ -55,4 +62,5 @@ public class UserController {
         this.service.EliminarUser(idUsuario);
         return  ResponseEntity.ok().build();
     }
+
 }

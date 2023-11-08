@@ -45,7 +45,7 @@ public class CommentsController {
     @GetMapping
     @RequestMapping(value = "BuscarComments/{idPublicacion}/{idUsuario}", method = RequestMethod.GET)
     public ResponseEntity<?> BuscarComments(@PathVariable int idPublicacion, @PathVariable int idUsuario) {
-        CommentsEntity commentsbuscado = this.service.BuscarComments(idPublicacion, idUsuario);
+        List<CommentsEntity> commentsbuscado = this.service.BuscarComments(idPublicacion, idUsuario);
         return ResponseEntity.ok(commentsbuscado);
     }
 

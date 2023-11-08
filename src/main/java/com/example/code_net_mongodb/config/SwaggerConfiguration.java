@@ -14,16 +14,8 @@ public class SwaggerConfiguration {
     public OpenAPI apiInfo() {
         return new OpenAPI().info(new Info().title("Test API documentation")
                 .description("Documentation for Test weather API")
-                .version("v1")
-                .contact(getContactDetails())
-                .license(getLicenseDetails()));
+                .version("v1"))
+                ;
     }
 
-    private Contact getContactDetails() {
-        return new Contact().name("Contact Person").email("contact@email.con").url("https://website.com");
-    }
-
-    private License getLicenseDetails() {
-        return new License().name("License name").url("https://license-url.com");
-    }
 }

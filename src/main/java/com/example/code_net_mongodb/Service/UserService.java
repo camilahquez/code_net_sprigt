@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -44,6 +45,10 @@ public class UserService {
 
     public void EliminarUser(int idUsuario) {
         this.Repository.deleteById(idUsuario);
+    }
+
+    public Optional<UserEntity> BuscarUserByEmail(String email) {
+        return this.Repository.findByEmail(email);
     }
 
 

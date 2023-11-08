@@ -27,6 +27,6 @@ public class PublicationEntity {
     private String typePublication;
     //no se ingresa
     private LocalDateTime datePublication;
-
     private String message;
+
 }

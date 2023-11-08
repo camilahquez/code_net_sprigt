@@ -6,11 +6,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface CommentsRepository extends MongoRepository<CommentsEntity, Integer> {
     Page<CommentsEntity> findByIdPublicacion(int idPublicacion, Pageable pageable);
-    Optional<CommentsEntity> findByIdPublicacionAndIdUsuario(int idPublicacion, int idUsuario);
+        List<CommentsEntity> findByIdPublicacionAndIdUsuario(int idPublicacion, int idUsuario);
     void deleteByIdPublicacionAndIdUsuario(int idPublicacion, int idUsuario);
 }

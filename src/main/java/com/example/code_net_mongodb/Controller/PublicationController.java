@@ -47,6 +47,12 @@ public class PublicationController {
         PublicationEntity publicationbuscada= this.service.BuscarPublication(idPublicacion);
         return  ResponseEntity.ok(publicationbuscada);
     }
+    @GetMapping
+    @RequestMapping(value = "BuscarPublicationByTypePublication/{typePublication}", method = RequestMethod.GET)
+    public ResponseEntity<?> BuscarPublicationByTypePublication(@PathVariable String typePublication){
+        List<PublicationEntity> publicationbuscadaByType= this.service.BuscarPublicationByTipePublication(typePublication);
+        return  ResponseEntity.ok(publicationbuscadaByType);
+    }
     @DeleteMapping
     @RequestMapping(value = "EliminarPublication/{idPubliacacion}", method = RequestMethod.DELETE)
     public ResponseEntity<?> EliminarPublication(@PathVariable int idPublicacion){
@@ -59,4 +65,5 @@ public class PublicationController {
     public Page<PublicationEntity> publicationByIdUsuario(@PathVariable int idUsuario, @PathVariable int page, @PathVariable int size) {
         return service.publicationByIdUser(idUsuario, page, size);
     }
+
 }

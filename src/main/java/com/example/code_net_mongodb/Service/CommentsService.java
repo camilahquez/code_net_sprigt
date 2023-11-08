@@ -37,8 +37,8 @@ public class CommentsService {
         return this.Repository.save(Comments);
     }
 
-    public CommentsEntity BuscarComments(int idPublicacion, int idUsuario) {
-        return this.Repository.findByIdPublicacionAndIdUsuario(idPublicacion, idUsuario).get();
+    public List<CommentsEntity> BuscarComments(int idPublicacion, int idUsuario) {
+        return this.Repository.findByIdPublicacionAndIdUsuario(idPublicacion, idUsuario);
     }
 
     public void EliminarComments(int idPublicacion, int idUsuario) {

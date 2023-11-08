@@ -43,6 +43,10 @@ public class PublicationService {
     public Page<PublicationEntity> publicationByIdUser(int idUsuario, int pageNumber, int pageSize) {
         Pageable pegeable = PageRequest.of(pageNumber, pageSize);
         return  this.repository.findByIdUsuario(idUsuario, pegeable);
+
+    }
+    public List<PublicationEntity> BuscarPublicationByTipePublication(String typePublication) {
+        return this.repository.findByTyPublication(typePublication);
     }
 
 }
