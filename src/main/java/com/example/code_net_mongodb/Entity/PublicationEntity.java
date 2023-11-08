@@ -28,5 +28,5 @@ public class PublicationEntity {
     //no se ingresa
     private LocalDateTime datePublication;
     private String message;
-
+    private ArrayList<String> tecnologias;
 }
