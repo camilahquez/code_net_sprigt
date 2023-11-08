@@ -46,7 +46,7 @@ public class PublicationService {
 
     }
     public List<PublicationEntity> BuscarPublicationByTipePublication(String typePublication) {
-        return this.repository.findByTyPublication(typePublication);
+        return this.repository.findByTypePublication(typePublication);
     }
 
 }
