@@ -14,7 +14,6 @@ import java.util.Date;
 @Document(collection = "data_user")
 public class DataUserEntity {
     @Id
-    private int id;
     @NotNull
     private String email;
     @NotNull
