@@ -46,6 +46,13 @@ public class AmigosController {
         AmigosEntity publicationbuscada= this.service. BuscarAmigos(idAmistad);
         return  ResponseEntity.ok(publicationbuscada);
     }
+    @GetMapping
+    @RequestMapping(value = "BuscarAmigosByIdUsuario/{idUsuarios}", method = RequestMethod.GET)
+    public ResponseEntity<?> BuscarAmigosByIdUsuario(@PathVariable int idUsuarios){
+        List<AmigosEntity> publicationbuscadaByIdUsuario= this.service. BuscarAmigosByIdUsuario(idUsuarios);
+
+        return  ResponseEntity.ok(publicationbuscadaByIdUsuario);
+        }
     @DeleteMapping
     @RequestMapping(value = "EliminarAmigos/{idAmistad}", method = RequestMethod.DELETE)
     public ResponseEntity<?> EliminarAmigos(@PathVariable int idAmistad){

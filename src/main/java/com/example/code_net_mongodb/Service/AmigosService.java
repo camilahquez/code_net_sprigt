@@ -42,6 +42,10 @@ public class AmigosService {
     public void EliminarAmigos(int idAmistad) {
         this.repository.deleteById(idAmistad);
     }
+    public List<AmigosEntity> BuscarAmigosByIdUsuario(int idUsuario){
+
+        return this.repository.findByIdUsuario(idUsuario);
+    }
 
 
 }
